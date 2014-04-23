@@ -1,0 +1,39 @@
+{
+  "name": "ssb",
+  "version": "0.0.1",
+  "description": "Use Statistics Norway's API",
+  "main": "index.js",
+  "bin": {
+    "ssb": "cli.js"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec test/*.js"
+  },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zrrrzzt/ssb.git"
+  },
+  "author": {
+    "name": "Geir Gåsodden",
+    "email": "geir.gasodden@pythonia.no"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zrrrzzt/ssb/issues"
+  },
+  "homepage": "https://github.com/zrrrzzt/ssb",
+  "dependencies": {
+    "request": "^2.34.0",
+    "minimist": "0.0.8"
+  },
+  "devDependencies": {
+    "mocha": "^1.18.2"
+  }
+}
