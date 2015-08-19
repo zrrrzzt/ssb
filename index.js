@@ -1,7 +1,7 @@
 'use strict'
 
-var request = require('request')
 var util = require('util')
+var getData = require('./lib/getData')
 var apiUrl = 'http://data.ssb.no/api'
 var defaults = {
   apiVersion: 'v0',
@@ -21,12 +21,16 @@ module.exports = function (opts, callback) {
   var lang = opts.lang || defaults.lang
   var uri = util.format('%s/%s/dataset/%s.%s', apiUrl, version, dataset, format)
   var qs = {lang: lang}
+  var options = {
+    apiUrl: uri,
+    qs: qs
+  }
 
-  request(uri, {qs: qs}, function (err, response, body) {
-    if (err) {
-      return callback(err, null)
+  getData(options, function (error, body) {
+    if (error) {
+      return callback(error, null)
     }
-    return callback(null, body.toString())
+    var result = format === 'json' ? JSON.parse(body) : body
+    return callback(null, result)
   })
-
 }
