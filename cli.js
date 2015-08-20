@@ -45,6 +45,7 @@ ssb(opts, function (err, data) {
   if (err) {
     console.error(err)
   } else {
-    console.log(data)
+    var result = opts.format === 'json' ? JSON.stringify(data) : data
+    console.log(result)
   }
 })
