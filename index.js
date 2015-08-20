@@ -9,24 +9,28 @@ var defaults = {
   lang: 'no'
 }
 
-module.exports = function (opts, callback) {
+module.exports = function (options, callback) {
 
-  if (!opts.dataset) {
-    return callback(new Error('Missing required param: dataset'), null)
+  if (!options) {
+    return callback(new Error('Missing required input: options'), null)
   }
 
-  var dataset = opts.dataset
-  var version = opts.api || defaults.apiVersion
-  var format = opts.format || defaults.format
-  var lang = opts.lang || defaults.lang
+  if (!options.dataset) {
+    return callback(new Error('Missing required input: options.dataset'), null)
+  }
+
+  var dataset = options.dataset
+  var version = options.api || defaults.apiVersion
+  var format = options.format || defaults.format
+  var lang = options.lang || defaults.lang
   var uri = util.format('%s/%s/dataset/%s.%s', apiUrl, version, dataset, format)
   var qs = {lang: lang}
-  var options = {
+  var requestOptions = {
     apiUrl: uri,
     qs: qs
   }
 
-  getData(options, function (error, body) {
+  getData(requestOptions, function (error, body) {
     if (error) {
       return callback(error, null)
     }

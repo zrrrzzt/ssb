@@ -18,12 +18,12 @@ tap.test('getData should catch errors', function (test) {
 
 tap.test('Returns error message if dataset not found', function (test) {
   var options = {
-    'apiUrl': 'http://hotell.difi.no/api/json/npmlovesyou',
+    'apiUrl': 'http://data.ssb.no/api/v0/npmlovesyou/json',
     'qs': {
       query: 'doyoulovenpm'
     }
   }
-  var expectedErrorMessage = 'Dataset or folder not found.'
+  var expectedErrorMessage = 'Page not found.'
   getData(options, function (error, data) {
     tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
     test.done()
