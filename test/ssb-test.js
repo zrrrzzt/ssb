@@ -1,5 +1,3 @@
-'use strict'
-
 var tap = require('tap')
 var ssb = require('../index')
 
@@ -56,7 +54,7 @@ tap.test('Should return csv if format is csv', function (test) {
     lang: 'en',
     format: 'csv'
   }
-  var expectedData = '\"commodity group\"'
+  var expectedData = '"commodity group"'
   ssb(options, function (error, data) {
     if (error) {
       throw error

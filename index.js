@@ -1,16 +1,13 @@
-'use strict'
-
 var util = require('util')
 var getData = require('./lib/getData')
-var apiUrl = 'http://data.ssb.no/api'
+var apiUrl = 'https://data.ssb.no/api'
 var defaults = {
   apiVersion: 'v0',
   format: 'json',
   lang: 'no'
 }
 
-module.exports = function (options, callback) {
-
+module.exports = (options, callback) => {
   if (!options) {
     return callback(new Error('Missing required input: options'), null)
   }
@@ -30,7 +27,7 @@ module.exports = function (options, callback) {
     qs: qs
   }
 
-  getData(requestOptions, function (error, body) {
+  getData(requestOptions, (error, body) => {
     if (error) {
       return callback(error, null)
     }

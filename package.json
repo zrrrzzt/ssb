@@ -1,6 +1,6 @@
 {
   "name": "ssb",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Use Statistics Norway's API",
   "author": {
     "name": "Geir Gåsodden",
@@ -10,29 +10,30 @@
   "bugs": {
     "url": "https://github.com/zrrrzzt/ssb/issues"
   },
-  "homepage": "https://github.com/zrrrzzt/ssb",
+  "homepage": "https://github.com/zrrrzzt/ssb#readme",
   "main": "index.js",
   "bin": {
     "ssb": "cli.js"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=8.9.1"
   },
   "scripts": {
     "test": "standard && tap --reporter=spec test/*.js",
     "coverage": "tap test/*.js --coverage",
-    "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls"
+    "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
+    "standard-fix": "standard --fix"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/zrrrzzt/ssb.git"
+    "url": "https+git://github.com/zrrrzzt/ssb.git"
   },
   "dependencies": {
-    "minimist": "^1.1.3"
+    "minimist": "1.2.0"
   },
   "devDependencies": {
-    "coveralls": "^3.0.0",
-    "standard": "^10.0.1",
-    "tap": "^11.0.0"
+    "coveralls": "3.0.0",
+    "standard": "10.0.3",
+    "tap": "11.0.0"
   }
 }

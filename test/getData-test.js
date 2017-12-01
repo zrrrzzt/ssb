@@ -5,7 +5,7 @@ var getData = require('../lib/getData')
 
 tap.test('getData should catch errors', function (test) {
   var options = {
-    apiUrl: 'http://yabendabenduhuusnippelapp.no',
+    apiUrl: 'https://yabendabenduhuusnippelapp.no',
     qs: {
       query: '994528130'
     }
@@ -18,7 +18,7 @@ tap.test('getData should catch errors', function (test) {
 
 tap.test('Returns error message if dataset not found', function (test) {
   var options = {
-    'apiUrl': 'http://data.ssb.no/api/v0/npmlovesyou/json',
+    'apiUrl': 'https://data.ssb.no/api/v0/npmlovesyou/json',
     'qs': {
       query: 'doyoulovenpm'
     }
