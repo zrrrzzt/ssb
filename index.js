@@ -21,7 +21,7 @@ module.exports = (options, callback) => {
   var format = options.format || defaults.format
   var lang = options.lang || defaults.lang
   var uri = util.format('%s/%s/dataset/%s.%s', apiUrl, version, dataset, format)
-  var qs = {lang: lang}
+  var qs = { lang: lang }
   var requestOptions = {
     apiUrl: uri,
     qs: qs
