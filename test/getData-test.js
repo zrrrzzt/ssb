@@ -18,8 +18,8 @@ tap.test('getData should catch errors', function (test) {
 
 tap.test('Returns error message if dataset not found', function (test) {
   var options = {
-    'apiUrl': 'https://data.ssb.no/api/v0/npmlovesyou/json',
-    'qs': {
+    apiUrl: 'https://data.ssb.no/api/v0/npmlovesyou/json',
+    qs: {
       query: 'doyoulovenpm'
     }
   }
