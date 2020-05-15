@@ -16,7 +16,7 @@
     "ssb": "cli.js"
   },
   "engines": {
-    "node": ">=10.13.0"
+    "node": ">=12.16.3"
   },
   "scripts": {
     "test": "standard && npm audit && tap --reporter=spec test/*.js",
