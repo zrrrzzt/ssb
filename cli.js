@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 'use strict'
 
-var ssb = require('./index')
-var pkg = require('./package.json')
-var query = process.argv[2]
-var argv = require('minimist')((process.argv.slice(2)))
-var opts = {}
-var defaults = {
+const ssb = require('./index')
+const pkg = require('./package.json')
+const query = process.argv[2]
+const argv = require('minimist')((process.argv.slice(2)))
+const opts = {}
+const defaults = {
   format: 'json',
   lang: 'no'
 }
@@ -45,7 +45,7 @@ ssb(opts, function (err, data) {
   if (err) {
     console.error(err)
   } else {
-    var result = opts.format === 'json' ? JSON.stringify(data) : data
+    const result = opts.format === 'json' ? JSON.stringify(data) : data
     console.log(result)
   }
 })

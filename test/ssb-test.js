@@ -1,9 +1,9 @@
-var tap = require('tap')
-var ssb = require('../index')
+const tap = require('tap')
+const ssb = require('../index')
 
 tap.test('It requires an options object to be supplied', function (test) {
-  var options = false
-  var expectedErrorMessage = 'Missing required input: options'
+  const options = false
+  const expectedErrorMessage = 'Missing required input: options'
   ssb(options, function (error, data) {
     test.equal(error.message, expectedErrorMessage)
     test.done()
@@ -11,8 +11,8 @@ tap.test('It requires an options object to be supplied', function (test) {
 })
 
 tap.test('It requires a dataset to be supplied', function (test) {
-  var options = {}
-  var expectedErrorMessage = 'Missing required input: options.dataset'
+  const options = {}
+  const expectedErrorMessage = 'Missing required input: options.dataset'
   ssb(options, function (error, data) {
     test.equal(error.message, expectedErrorMessage)
     test.done()
@@ -20,10 +20,10 @@ tap.test('It requires a dataset to be supplied', function (test) {
 })
 
 tap.test('Should return json in Norwegian as default', function (test) {
-  var options = {
+  const options = {
     dataset: 1120
   }
-  var expectedData = 'varegruppe'
+  const expectedData = 'varegruppe'
   ssb(options, function (error, data) {
     if (error) {
       throw error
@@ -34,11 +34,11 @@ tap.test('Should return json in Norwegian as default', function (test) {
 })
 
 tap.test('Should return json in English if lang is en', function (test) {
-  var options = {
+  const options = {
     dataset: 1120,
     lang: 'en'
   }
-  var expectedData = 'commodity group'
+  const expectedData = 'commodity group'
   ssb(options, function (error, data) {
     if (error) {
       throw error
@@ -49,29 +49,29 @@ tap.test('Should return json in English if lang is en', function (test) {
 })
 
 tap.test('Should return csv if format is csv', function (test) {
-  var options = {
+  const options = {
     dataset: 1120,
     lang: 'en',
     format: 'csv'
   }
-  var expectedData = '"commodity group"'
+  const expectedData = '"commodity group"'
   ssb(options, function (error, data) {
     if (error) {
       throw error
     }
-    var result = data.split(',')
+    const result = data.split(',')
     test.equal(result[0], expectedData)
     test.done()
   })
 })
 
 tap.test('Should return error if data is not found', function (test) {
-  var options = {
+  const options = {
     dataset: 'npmlovesyou',
     lang: 'en',
     format: 'csv'
   }
-  var expectedErrorMessage = 'Page not found.'
+  const expectedErrorMessage = 'Page not found.'
   ssb(options, function (error, data) {
     test.equal(error.message, expectedErrorMessage)
     test.done()

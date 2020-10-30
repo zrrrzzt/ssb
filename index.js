@@ -1,7 +1,7 @@
-var util = require('util')
-var getData = require('./lib/getData')
-var apiUrl = 'https://data.ssb.no/api'
-var defaults = {
+const util = require('util')
+const getData = require('./lib/getData')
+const apiUrl = 'https://data.ssb.no/api'
+const defaults = {
   apiVersion: 'v0',
   format: 'json',
   lang: 'no'
@@ -16,13 +16,13 @@ module.exports = (options, callback) => {
     return callback(new Error('Missing required input: options.dataset'), null)
   }
 
-  var dataset = options.dataset
-  var version = options.api || defaults.apiVersion
-  var format = options.format || defaults.format
-  var lang = options.lang || defaults.lang
-  var uri = util.format('%s/%s/dataset/%s.%s', apiUrl, version, dataset, format)
-  var qs = { lang: lang }
-  var requestOptions = {
+  const dataset = options.dataset
+  const version = options.api || defaults.apiVersion
+  const format = options.format || defaults.format
+  const lang = options.lang || defaults.lang
+  const uri = util.format('%s/%s/dataset/%s.%s', apiUrl, version, dataset, format)
+  const qs = { lang: lang }
+  const requestOptions = {
     apiUrl: uri,
     qs: qs
   }
@@ -31,7 +31,7 @@ module.exports = (options, callback) => {
     if (error) {
       return callback(error, null)
     }
-    var result = format === 'json' ? JSON.parse(body) : body
+    const result = format === 'json' ? JSON.parse(body) : body
     return callback(null, result)
   })
 }
