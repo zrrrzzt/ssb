@@ -6,7 +6,7 @@ tap.test('It requires an options object to be supplied', function (test) {
   const expectedErrorMessage = 'Missing required input: options'
   ssb(options, function (error, data) {
     test.equal(error.message, expectedErrorMessage)
-    test.done()
+    test.end()
   })
 })
 
@@ -15,7 +15,7 @@ tap.test('It requires a dataset to be supplied', function (test) {
   const expectedErrorMessage = 'Missing required input: options.dataset'
   ssb(options, function (error, data) {
     test.equal(error.message, expectedErrorMessage)
-    test.done()
+    test.end()
   })
 })
 
@@ -29,7 +29,7 @@ tap.test('Should return json in Norwegian as default', function (test) {
       throw error
     }
     test.equal(data.dataset.dimension.VareGrupper2.label, expectedData)
-    test.done()
+    test.end()
   })
 })
 
@@ -44,7 +44,7 @@ tap.test('Should return json in English if lang is en', function (test) {
       throw error
     }
     test.equal(data.dataset.dimension.VareGrupper2.label, expectedData)
-    test.done()
+    test.end()
   })
 })
 
@@ -61,7 +61,7 @@ tap.test('Should return csv if format is csv', function (test) {
     }
     const result = data.split(',')
     test.equal(result[0], expectedData)
-    test.done()
+    test.end()
   })
 })
 
@@ -74,6 +74,6 @@ tap.test('Should return error if data is not found', function (test) {
   const expectedErrorMessage = 'Page not found.'
   ssb(options, function (error, data) {
     test.equal(error.message, expectedErrorMessage)
-    test.done()
+    test.end()
   })
 })
